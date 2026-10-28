@@ -27,13 +27,14 @@ jobs:
           channel: 'stable'
           cache: true
 
-      - name: Fix outdated dependencies automatically
+      - name: Clean and Get Dependencies
         run: |
+          flutter clean
           flutter pub upgrade --major-versions
           flutter pub get
 
       - name: Build APK release
-        run: flutter build apk --release
+        run: flutter build apk --release --no-pub-version-check
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
