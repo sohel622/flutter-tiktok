@@ -27,8 +27,8 @@ jobs:
           channel: 'stable'
           cache: true
 
-      - name: Bypass pub get and build directly
-        run: flutter build apk --release --no-pub-version-check --no-sound-null-safety
+      - name: Build APK directly
+        run: flutter build apk --release --no-sound-null-safety
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
