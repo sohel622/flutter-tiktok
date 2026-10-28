@@ -27,8 +27,10 @@ jobs:
           channel: 'stable'
           cache: true
 
-      - name: Install dependencies
-        run: flutter pub get
+      - name: Fix outdated dependencies automatically
+        run: |
+          flutter pub upgrade --major-versions
+          flutter pub get
 
       - name: Build APK release
         run: flutter build apk --release
